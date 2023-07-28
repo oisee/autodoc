@@ -18,6 +18,23 @@ export const models: Record<LLMModels, LLMModelDetails> = {
     failed: 0,
     total: 0,
   },
+  
+  [LLMModels.GPT316k]: {
+    name: LLMModels.GPT316k,
+    inputCostPer1KTokens: 0.002,
+    outputCostPer1KTokens: 0.002,
+    maxLength: 16386,
+    llm: new OpenAIChat({
+      temperature: 0.1,
+      openAIApiKey: process.env.OPENAI_API_KEY,
+      modelName: LLMModels.GPT316k,
+    }),
+    inputTokens: 0,
+    outputTokens: 0,
+    succeeded: 0,
+    failed: 0,
+    total: 0,
+  },
   [LLMModels.GPT4]: {
     name: LLMModels.GPT4,
     inputCostPer1KTokens: 0.03,

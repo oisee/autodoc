@@ -55,9 +55,13 @@ export const user = async (
           name: 'GPT-3.5 Turbo',
           value: [LLMModels.GPT3],
         },
+		{
+          name: 'GPT-3.5 Turbo-16j=k',
+          value: [LLMModels.GPT361k],
+		  },		
         {
-          name: 'GPT-3.5 Turbo, GPT-4 8K (Early Access)',
-          value: [LLMModels.GPT3, LLMModels.GPT4],
+          name: 'GPT-3.5 Turbo-16k, GPT-4 8K (Early Access)',
+          value: [LLMModels.GPT316k, LLMModels.GPT4],
         },
         {
           name: 'GPT-3.5 Turbo, GPT-4 8K (Early Access), GPT-4 32K (Early Access)',

@@ -28,8 +28,18 @@ export const traverseFileSystem = async (
       return;
     }
 
+    const isTextOverride = (fileName: string, buffer: any):boolean =>{
+      if minimatch(fileName, ".abap"){
+        return true;
+      } else {
+        return isText(fileName, buffer)
+      }
+    };
+    
     const shouldIgnore = (fileName: string): boolean => {
-      return ignore.some((pattern) => minimatch(fileName, pattern));
+      console.log(fileName);
+      result = ignore.some((pattern) => minimatch(fileName, pattern));
+      return result;
     };
 
     const dfs = async (currentPath: string): Promise<void> => {
@@ -71,7 +81,7 @@ export const traverseFileSystem = async (
 
           const buffer = await fs.readFile(filePath);
 
-          if (isText(fileName, buffer)) {
+          if (isTextOverride(fileName, buffer)) {
             await processFile?.({
               fileName,
               filePath,

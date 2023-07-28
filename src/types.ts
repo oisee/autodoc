@@ -80,6 +80,7 @@ export type TraverseFileSystemParams = {
 
 export enum LLMModels {
   GPT3 = 'gpt-3.5-turbo',
+  GPT316k = 'gpt-3.5-turbo-16k',
   GPT4 = 'gpt-4',
   GPT432k = 'gpt-4-32k',
 }

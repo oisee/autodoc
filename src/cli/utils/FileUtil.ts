@@ -4,12 +4,13 @@ export function getFileName(
   extension = '.md',
 ): string {
   const lastDelimiterIndex = input.lastIndexOf(delimiter);
-  if (lastDelimiterIndex === -1) {
-    // delimiter not found in string
-    return input + extension;
-  } else {
-    return input.slice(0, lastDelimiterIndex) + extension;
-  }
+  return input + extension;
+  // if (lastDelimiterIndex === -1) {
+  //   // delimiter not found in string
+  //   return input + extension;
+  // } else {
+  //   return input.slice(0, lastDelimiterIndex) + extension;
+  // }
 }
 
 export const githubFileUrl = (
