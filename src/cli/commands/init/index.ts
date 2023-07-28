@@ -15,7 +15,7 @@ export const makeConfigTemplate = (
     llms:
       config?.llms?.length ?? 0 > 0
         ? (config as AutodocRepoConfig).llms
-        : [LLMModels.GPT3],
+        : [LLMModels.GPT316k],
     ignore: [
       '.*',
       '*package-lock.json',
@@ -98,6 +98,10 @@ export const init = async (
           name: 'GPT-3.5 Turbo',
           value: [LLMModels.GPT3],
         },
+        {
+          name: 'GPT-3.5 Turbo-16K',
+          value: [LLMModels.GPT316k],
+        },        
         {
           name: 'GPT-3.5 Turbo, GPT-4 8K (Early Access)',
           value: [LLMModels.GPT3, LLMModels.GPT4],

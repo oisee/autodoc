@@ -7,6 +7,7 @@ import { APIRateLimit } from '../../utils/APIRateLimit.js';
 import {
   createCodeFileSummary,
   createCodeQuestions,
+  createDiagram,
   folderSummaryPrompt,
 } from './prompts.js';
 import {
@@ -105,6 +106,13 @@ export const processRepository = async (
       contentType,
       targetAudience,
     );
+    const diagramPrompt = createDiagram(
+      projectName,
+      projectName,
+      content,
+      contentType,
+      targetAudience,
+    );    
     const summaryLength = encoding.encode(summaryPrompt).length;
     const questionLength = encoding.encode(questionsPrompt).length;
     const max = Math.max(questionLength, summaryLength);
@@ -123,6 +131,11 @@ export const processRepository = async (
         llms.includes(LLMModels.GPT3)
       ) {
         return models[LLMModels.GPT3];
+      } else if (
+        models[LLMModels.GPT316k].maxLength > max &&
+        llms.includes(LLMModels.GPT316k)
+      ) {
+        return models[LLMModels.GPT316k];
       } else if (
         models[LLMModels.GPT4].maxLength > max &&
         llms.includes(LLMModels.GPT4)
@@ -146,9 +159,10 @@ export const processRepository = async (
     try {
       if (!dryRun) {
         /** Call LLM */
-        const [summary, questions] = await Promise.all([
+        const [summary, questions, diagram] = await Promise.all([
           callLLM(summaryPrompt, model.llm),
           callLLM(questionsPrompt, model.llm),
+          callLLM(diagramPrompt, model.llm),
         ]);
 
         /**
@@ -160,6 +174,7 @@ export const processRepository = async (
           url,
           summary,
           questions,
+          diagram,
           checksum: newChecksum,
         };
 
@@ -439,7 +454,7 @@ async function shouldReindex(
   try {
     await fs.access(jsonPath);
     summaryExists = true;
-  } catch (error) {}
+  } catch (error) { }
 
   if (summaryExists) {
     const fileContents = await fs.readFile(jsonPath, 'utf8');

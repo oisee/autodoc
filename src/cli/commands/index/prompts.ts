@@ -31,13 +31,32 @@ export const createCodeQuestions = (
   return `
     You are acting as a ${contentType} documentation expert for a project called ${projectName}.
     Below is the ${contentType} from a file located at \`${filePath}\`. 
-    What are 3 questions that a ${targetAudience} might have about this ${contentType}? 
-    Answer each question in 1-2 sentences. Output should be in markdown format.
+    What are 5 questions that a ${targetAudience} might have about this ${contentType}? 
+    Answer each question in 1-5 sentences. Output should be in markdown format.
 
     ${contentType}:
     ${fileContents}
 
     Questions and Answers:
+    
+  `;
+};
+export const createDiagram = (
+  filePath: string,
+  projectName: string,
+  fileContents: string,
+  contentType: string,
+  targetAudience: string,
+): string => {
+  return `
+    You are acting as a ${contentType} documentation expert for a project called ${projectName}.
+    Below is the ${contentType} from a file located at \`${filePath}\`. 
+    Please provide a Mermaid diagram that explains this ${contentType}. 
+
+    ${contentType}:
+    ${fileContents}
+
+    Mermiad Diagram:
     
   `;
 };

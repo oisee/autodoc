@@ -13,6 +13,20 @@ export function getFileName(
   // }
 }
 
+export function getFileNameJSON(
+  input: string,
+  delimiter = '.',
+  extension = '.md',
+): string {
+  const lastDelimiterIndex = input.lastIndexOf(delimiter);
+  if (lastDelimiterIndex === -1) {
+    // delimiter not found in string
+    return input + extension;
+  } else {
+    return input.slice(0, lastDelimiterIndex) + extension;
+  }
+}
+
 export const githubFileUrl = (
   githubRoot: string,
   inputRoot: string,

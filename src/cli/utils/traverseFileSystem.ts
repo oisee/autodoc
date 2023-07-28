@@ -28,17 +28,19 @@ export const traverseFileSystem = async (
       return;
     }
 
-    const isTextOverride = (fileName: string, buffer: any):boolean =>{
-      if minimatch(fileName, ".abap"){
+    const isTextOverride = (fileName: string, buffer: any): boolean => {
+      if (minimatch(fileName, ".abap")) {
         return true;
       } else {
-        return isText(fileName, buffer)
+        const isTextResult = isText(fileName, buffer);
+        return isTextResult !== null ? isTextResult : false;
+        //return isTextResult !== null ? isTextResult : false;
       }
     };
     
     const shouldIgnore = (fileName: string): boolean => {
       console.log(fileName);
-      result = ignore.some((pattern) => minimatch(fileName, pattern));
+      let result = ignore.some((pattern) => minimatch(fileName, pattern));
       return result;
     };
 

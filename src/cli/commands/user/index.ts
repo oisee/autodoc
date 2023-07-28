@@ -9,7 +9,7 @@ export const makeConfigTemplate = (
   config?: AutodocUserConfig,
 ): AutodocUserConfig => {
   return {
-    llms: config?.llms ?? [LLMModels.GPT3],
+    llms: config?.llms ?? [LLMModels.GPT316k],
   };
 };
 
@@ -57,7 +57,7 @@ export const user = async (
         },
 		{
           name: 'GPT-3.5 Turbo-16j=k',
-          value: [LLMModels.GPT361k],
+          value: [LLMModels.GPT316k],
 		  },		
         {
           name: 'GPT-3.5 Turbo-16k, GPT-4 8K (Early Access)',

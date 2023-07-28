@@ -25,6 +25,7 @@ export type FileSummary = {
   url: string;
   summary: string;
   questions: string;
+  diagram: string;
   checksum: string;
 };
 

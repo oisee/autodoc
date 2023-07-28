@@ -8,7 +8,7 @@ import {
 } from '../../../types';
 import { traverseFileSystem } from '../../utils/traverseFileSystem.js';
 import { spinnerSuccess, updateSpinnerText } from '../../spinner.js';
-import { getFileName } from '../../utils/FileUtil.js';
+import { getFileNameJSON } from '../../utils/FileUtil.js';
 
 export const convertJsonToMarkdown = async ({
   name: projectName,
@@ -83,7 +83,7 @@ export const convertJsonToMarkdown = async ({
           }`
         : '';
 
-    const outputPath = getFileName(markdownFilePath, '.', '.md');
+    const outputPath = getFileNameJSON(markdownFilePath, '.', '.md');
     await fs.writeFile(outputPath, markdown, 'utf-8');
   };
 
