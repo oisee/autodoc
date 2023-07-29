@@ -68,7 +68,7 @@ export const convertJsonToMarkdown = async ({
       return;
     }
 
-    const { url, summary, questions } =
+    const { url, summary, questions, diagram } =
       fileName === 'summary.json'
         ? (JSON.parse(content) as FolderSummary)
         : (JSON.parse(content) as FileSummary);
@@ -78,9 +78,10 @@ export const convertJsonToMarkdown = async ({
      */
     const markdown =
       summary.length > 0
-        ? `[View code on GitHub](${url})\n\n${summary}\n${
-            questions ? '## Questions: \n ' + questions : ''
-          }`
+        ? `[View code on GitHub](${url})\n\n${summary}\n
+          ${ questions ? '## Questions: \n ' + questions : ''}
+          ${ diagram ? '## Diagram: \n ' + diagram : ''}
+          `
         : '';
 
     const outputPath = getFileNameJSON(markdownFilePath, '.', '.md');

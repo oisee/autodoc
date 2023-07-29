@@ -314,6 +314,7 @@ export const processRepository = async (
         folders: folders.filter(Boolean),
         summary,
         questions: '',
+        diagram: '',
         checksum: newChecksum,
       };
 

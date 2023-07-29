@@ -49,6 +49,7 @@ export type FolderSummary = {
   folders: FolderSummary[];
   summary: string;
   questions: string;
+  diagram: string;
   checksum: string;
 };
 
