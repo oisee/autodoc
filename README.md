@@ -166,3 +166,12 @@ There is a small group of us that are working full time on Autodoc. Join us on [
 As an open source project in a rapidly developing field, we are extremely open to contributions, whether it be in the form of a new feature, improved infra, or better documentation.
 
 For detailed information on how to contribute, see [here](.github/CONTRIBUTING.md).
+
+## toDo:
+
+* Azure Open AI (via endpoint url)
+* Local LM Studio replacement
+* Replace Prompts in config
+  * Questions
+  * Diagrams
+  
