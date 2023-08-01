@@ -1,0 +1,46 @@
+--langdef=abap
+--langmap=abap:.abap
+--map-abap=+.abap
+
+--kinddef-abap=i,interface,interfaces
+--kinddef-abap=m,module,modules
+--kinddef-abap=f,function,functions
+--kinddef-abap=c,class,classes
+--kinddef-abap=d,data,variables
+--kinddef-abap=k,const,constants
+--kinddef-abap=p,typepool,typepools
+--kinddef-abap=t,type,types
+--kinddef-abap=h,method,methods
+--kinddef-abap=o,form,forms
+--kinddef-abap=n,importing,importing parameters
+--kinddef-abap=r,returning,returning parameters
+--kinddef-abap=g,changing,changing parameters
+--kinddef-abap=e,exporting,exporting parameters
+--kinddef-abap=s,tables,tables parameters
+
+--kinddef-abap=q,query,queries
+--kinddef-abap=x,exception,exceptions
+--kinddef-abap=v,event,events
+--kinddef-abap=T,transaction,transactions
+--kinddef-abap=b,table,tables
+
+--regex-abap=/\s*INTERFACE\s+(\w+)/\1/i/
+--regex-abap=/\s*MODULE\s+(\w+)/\1/m/
+--regex-abap=/\s*FORM\s+(\w+)/\1/o/
+--regex-abap=/\s*METHODS\s+(\w+)/\1/h/
+--regex-abap=/\s*DATA\s+(\w+)/\1/d/
+--regex-abap=/\s*DATA\s+\(([A-Z0-9_]+)\)\s*=/\1/d/
+--regex-abap=/\s*CONSTANTS\s+(\w+)/\1/k/
+--regex-abap=/\s*TYPE-POOL\s+(\w+)/\1/p/
+--regex-abap=/\s*TYPES\s+(\w+)/\1/t/
+--regex-abap=/\s*CLASS\s+(\w+)/\1/c/
+
+--regex-abap=/\s*SELECT\s+(.*)\s+FROM\s+(\w+)/\2/q/
+--regex-abap=/\s*RAISE\s+EXCEPTION\s+TYPE\s+(\w+)/\1/x/
+--regex-abap=/\s*CLASS\s+([A-Z0-9_]+)\s*DEFINITION.*\s*EVENTS\s+([A-Z0-9_]+)/\2/v/
+--regex-abap=/\s*TRANSACTION\s+([A-Z0-9_]+)/\1/T/
+--regex-abap=/\s*TABLES\s*:?\s*([A-Z0-9_, ]+).*[.]$/\1/b/
+
+--exclude=*.xml
+--exclude=*.ctags
+--extras=-p

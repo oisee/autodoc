@@ -45,6 +45,7 @@ export const processRepository = async (
     contentType,
     targetAudience,
     linkHosted,
+    ctags,
   }: AutodocRepoConfig,
   dryRun?: boolean,
 ) => {
@@ -98,6 +99,7 @@ export const processRepository = async (
       content,
       contentType,
       filePrompt,
+      ctags
     );
     const questionsPrompt = createCodeQuestions(
       projectName,
@@ -105,6 +107,7 @@ export const processRepository = async (
       content,
       contentType,
       targetAudience,
+      ctags
     );
     const diagramPrompt = createDiagram(
       projectName,
@@ -112,6 +115,7 @@ export const processRepository = async (
       content,
       contentType,
       targetAudience,
+      ctags
     );    
     const summaryLength = encoding.encode(summaryPrompt).length;
     const questionLength = encoding.encode(questionsPrompt).length;
@@ -302,6 +306,7 @@ export const processRepository = async (
           folders,
           contentType,
           folderPrompt,
+          ctags,
         ),
         models[LLMModels.GPT4].llm,
       );

@@ -48,6 +48,7 @@ export const makeConfigTemplate = (
     contentType: 'code',
     targetAudience: 'smart developer',
     linkHosted: false,
+    ctags: ""
   };
 };
 

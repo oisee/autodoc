@@ -1,8 +1,12 @@
-import { OpenAIChat } from 'langchain/llms';
+//import { OpenAIChat } from 'langchain/llms';
+//import {  } from 'langchain/chat_models';
+import { ChatOpenAI } from "langchain/chat_models";
 import { LLMChain, ChatVectorDBQAChain, loadQAChain } from 'langchain/chains';
 import { PromptTemplate } from 'langchain/prompts';
 import { HNSWLib } from '../../../langchain/hnswlib.js';
 import { LLMModels } from '../../../types.js';
+//import { OpenAIChat } from "langchain/llms.js";
+var OpenAIChat = ChatOpenAI;
 
 const CONDENSE_PROMPT =
   PromptTemplate.fromTemplate(`Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.

@@ -21,6 +21,7 @@ export const estimate = async ({
   contentType,
   targetAudience,
   linkHosted,
+  ctags,
 }: AutodocRepoConfig) => {
   const json = path.join(output, 'docs', 'json/');
 
@@ -44,6 +45,7 @@ export const estimate = async ({
       contentType,
       targetAudience,
       linkHosted,
+      ctags
     },
     true,
   );

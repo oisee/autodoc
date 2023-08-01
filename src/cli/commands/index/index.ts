@@ -4,6 +4,7 @@ import { spinnerSuccess, updateSpinnerText } from '../../spinner.js';
 import { convertJsonToMarkdown } from './convertJsonToMarkdown.js';
 import { createVectorStore } from './createVectorStore.js';
 import { processRepository } from './processRepository.js';
+import { readFile, readFileSync } from 'fs';
 
 export const index = async ({
   name,
@@ -22,6 +23,16 @@ export const index = async ({
   const json = path.join(output, 'docs', 'json/');
   const markdown = path.join(output, 'docs', 'markdown/');
   const data = path.join(output, 'docs', 'data/');
+
+  async function content(path:string) {  
+    return await readFileSync(path)
+  }
+
+  console.log("Ctags = " + repositoryUrl + " " + root + "\n");
+
+  const ctags = String( await content(root + "/tags") )
+
+  console.log("Ctags = " + root + "\n" + ctags);
 
   /**
    * Traverse the repository, call LLMS for each file,
@@ -42,6 +53,7 @@ export const index = async ({
     contentType,
     targetAudience,
     linkHosted,
+    ctags,
   });
   updateSpinnerText('Processing repository...');
   spinnerSuccess();
@@ -63,6 +75,7 @@ export const index = async ({
     contentType,
     targetAudience,
     linkHosted,
+    ctags,
   });
   spinnerSuccess();
 
@@ -80,6 +93,7 @@ export const index = async ({
     contentType,
     targetAudience,
     linkHosted,
+    ctags,
   });
   spinnerSuccess();
 };

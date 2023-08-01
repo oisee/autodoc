@@ -17,6 +17,7 @@ export type AutodocRepoConfig = {
   contentType: string;
   targetAudience: string;
   linkHosted: boolean;
+  ctags:string
 };
 
 export type FileSummary = {
