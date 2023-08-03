@@ -39,8 +39,10 @@ export const traverseFileSystem = async (
     };
     
     const shouldIgnore = (fileName: string): boolean => {
-      console.log(fileName);
       let result = ignore.some((pattern) => minimatch(fileName, pattern));
+      if (result) {
+        console.log(`Ignoring ${fileName}`);
+      }
       return result;
     };
 

@@ -29,6 +29,8 @@ export const makeConfigTemplate = (
       '*.mdx',
       '*.toml',
       '*autodoc*',
+      '*.xml',
+      'tags'
     ],
     filePrompt:
       'Write a detailed technical explanation of what this code does. \n\
