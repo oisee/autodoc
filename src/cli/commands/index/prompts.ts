@@ -25,22 +25,16 @@ export const createCodeFileSummary = (
 This is a SAP ABAP code unit <FM, report, class> that provides <functions|methods|subroutines> to <Functionality Description>. It includes functions to <List of Main Operations>. 
 This template can be used as a starting point for documenting ABAP code units and can be customized as needed to fit the specific needs of your <CODE_UNIT_TYPE>.
 
-## Definition 
-
-**<CODE_UNIT_NAME>** is a <Visibility> <Finality> **<CODE_UNIT_TYPE>** and has <various important methods and interfaces that are aliased for simplicity>. 
+## (**<CODE_UNIT_NAME>** is a <Visibility> <Finality> **<CODE_UNIT_TYPE>** and has <various important methods and interfaces that are aliased for simplicity>.)
 
 \`\`\`abap
-class <CLASSNAME> definition <Additional Definitions>.
-
 <Sections>
+  <Purpose of Interfaces>
   <Purpose of Methods>
-  methods <Method Definitions>
-    <if any, do not just list all the source code, list only most important methods: instantiation, factory method, public methods, etc.>
+  <do not list all the source code, list only most important methods: instantiation, factory method, public methods, etc.>
 
 \`\`\`
-
 ## <Instantiation, Factory Methods, events>
-
 The class has a <constructor|factory methods> that accepts <Number of Parameters> parameters:
 <Parameter List>
 
@@ -74,10 +68,6 @@ Here are some examples of how this class can be used:
 \`\`\`
 
 ---
-In the template:
-- \`<List of Possible Usages>\`: A list of possible ways in which the class can be used.
-- \`<Sample Usage Code>\`: Some sample code showing how the class can be used. This can be derived from unit test classes or other code that uses the class.
-
 ### file content:
 
 ${fileContents}
@@ -134,7 +124,7 @@ export const createDiagram = (
 
     You can use these types: sequenceDiagram, flowchart, stateDiagram-v2, journey, mindmap or graph LR.
     Provide up to two types of diagrams to explain this file content or none if you decide that diagram is not needed.:
-    If the content of the file is not ABAP code, but CDS view or something else - try to generate graph LR diagram.
+    If the content of the file is not ABAP code, but CDS view please just list the sources of data, joins and associations, and explain the structure of the CDS view. For CDS - do not generate a diagram, just explain the structure of the CDS view.
     
     Please provide a Mermaid diagram that explains this file content ${contentType}:
     ### file content:

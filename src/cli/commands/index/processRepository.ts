@@ -166,7 +166,7 @@ export const processRepository = async (
         const [summary, questions="", diagram=""] = await Promise.all([
           callLLM(summaryPrompt, model.llm),
           callLLM(questionsPrompt, model.llm),
-          callLLM(diagramPrompt, model.llm),
+          // callLLM(diagramPrompt, model.llm),
         ]);
 
         /**
